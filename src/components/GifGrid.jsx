@@ -1,13 +1,17 @@
 // import { useState, useEffect } from 'react'
 
 import { GifItem } from './GifItem';
+
+import { saveAs } from 'file-saver';
 import { useFetchGifs } from '../hooks/useFetchGifs';
 
 //import {getGifs} from '../helpers/getGifs'
+const handleDownload = (url) => {
+  saveAs(url, 'download.gif');
+};
 
 export const GifGrid = ({category}) => {
   const {images, isLoading} = useFetchGifs(category);
-
     return (
     <>
       <h3> {category} </h3>
@@ -17,11 +21,16 @@ export const GifGrid = ({category}) => {
       
       <div className='card-grid'> 
         {
+          
           images.map((image) => (
+            <>
+            
           <GifItem 
             key={ image.id }
             { ...image}
             />
+            </>
+            
           ))
         }
       </div>

@@ -62,3 +62,14 @@
     width: 100%;
   }
   
+  .Download-icon{
+    font-size:100px;
+  }
+
+  .contenedor-header{
+    display: flex;
+  }
+  .descarga{
+    width:70%;
+    text-align: right;
+  }
